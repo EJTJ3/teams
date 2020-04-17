@@ -86,7 +86,6 @@ class SectionUnitTest extends \PHPUnit\Framework\TestCase
         ];
 
         $this->assertSame($expectedData, $section->toArray());
-
     }
 
     protected function getSection(): Section

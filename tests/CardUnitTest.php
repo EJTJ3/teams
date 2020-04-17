@@ -13,7 +13,7 @@ class CardUnitTest extends TestCase
     {
         $card = $this->getCard();
 
-        $this->assertSame('Summary', $card->getSummary());
+        $this->assertSame('Text', $card->getText());
     }
 
     public function testSetText(): void
@@ -34,20 +34,11 @@ class CardUnitTest extends TestCase
         $this->assertSame('new Title', $card->getTitle());
     }
 
-    public function testSetSummary(): void
-    {
-        $card = $this->getCard();
-
-        $card->setSummary('new Summary');
-
-        $this->assertSame('new Summary', $card->getSummary());
-    }
-
     public function testSetThemeColor(): void
     {
         $card = $this->getCard();
 
-       $card->setThemeColor(Card::STATUS_SUCCESS);
+        $card->setThemeColor(Card::STATUS_SUCCESS);
 
         $this->assertSame(Card::STATUS_SUCCESS, $card->getThemeColor());
     }
@@ -86,7 +77,6 @@ class CardUnitTest extends TestCase
             'title' => 'Adding Title to the card',
             'themeColor' => Card::STATUS_DEFAULT,
             'text' => 'Yes, he did',
-            'summary' => 'Larry Bryant created a new task',
         ];
 
         $this->assertSame($expectedData, $card->preparePayload());
@@ -94,6 +84,6 @@ class CardUnitTest extends TestCase
 
     protected function getCard(): Card
     {
-        return new Card('Summary');
+        return new Card('Text');
     }
 }

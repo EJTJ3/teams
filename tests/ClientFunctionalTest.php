@@ -14,11 +14,11 @@ class ClientFunctionalTest extends PHPUnit\Framework\TestCase
 {
     public function setSimpleCard(): void
     {
-        $card = new Card('Summery');
+        $card = new Card('Text');
 
         $expectedHttpData = [
             '@type' => 'MessageCard',
-            'summery' => 'Summery',
+            'text' => 'Text',
             'themeColor' => Card::STATUS_DEFAULT,
         ];
 
@@ -37,7 +37,6 @@ class ClientFunctionalTest extends PHPUnit\Framework\TestCase
         $card = (new Card(''))
             ->setTitle('Title')
             ->setText('Text')
-            ->setSummary('Summary')
             ->setThemeColor(Card::STATUS_FAILURE)
             ->addSection($section);
 
@@ -63,7 +62,6 @@ class ClientFunctionalTest extends PHPUnit\Framework\TestCase
             'title' => 'Title',
             'themeColor' => Card::STATUS_FAILURE,
             'text' => 'Text',
-            'summary' => 'Summary',
             'sections' => [$sectionsOutput],
         ];
 
@@ -151,7 +149,6 @@ class ClientFunctionalTest extends PHPUnit\Framework\TestCase
             'title' => 'Adding Title to the card',
             'themeColor' => Card::STATUS_DEFAULT,
             'text' => 'Yes, he did',
-            'summary' => 'Larry Bryant created a new task',
             'sections' => [$sectionsOutput],
             'potentialAction' => [$actionOutput],
         ];

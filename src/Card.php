@@ -20,11 +20,6 @@ class Card implements CardInterface
     /**
      * @var string
      */
-    private $summary;
-
-    /**
-     * @var string
-     */
     private $title;
 
     /**
@@ -42,9 +37,9 @@ class Card implements CardInterface
      */
     private $potentialAction;
 
-    public function __construct(string $summary)
+    public function __construct(string $text)
     {
-        $this->summary = $summary;
+        $this->text = $text;
         $this->themeColor = self::STATUS_DEFAULT;
     }
 
@@ -68,18 +63,6 @@ class Card implements CardInterface
     public function setThemeColor(string $themeColor): self
     {
         $this->themeColor = $themeColor;
-
-        return $this;
-    }
-
-    public function getSummary(): string
-    {
-        return $this->summary;
-    }
-
-    public function setSummary(string $summary): self
-    {
-        $this->summary = $summary;
 
         return $this;
     }
@@ -140,7 +123,6 @@ class Card implements CardInterface
             'title' => $this->title,
             'themeColor' => $this->themeColor,
             'text' => $this->text,
-            'summary' => $this->summary,
         ];
 
         if (isset($this->sections)) {
@@ -150,6 +132,7 @@ class Card implements CardInterface
 
             $payload['sections'] = $sections;
         }
+
         if (isset($this->potentialAction)) {
             $actions = array_map(static function (ActionInterface $action) {
                 return $action->toArray();
