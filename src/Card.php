@@ -37,16 +37,10 @@ class Card implements CardInterface
      */
     private $potentialAction;
 
-    /**
-     * @var bool
-     */
-    private $markDown;
-
     public function __construct(string $text)
     {
         $this->text = $text;
         $this->themeColor = self::STATUS_DEFAULT;
-        $this->markDown = true;
     }
 
     public function getTitle(): string
@@ -122,13 +116,6 @@ class Card implements CardInterface
         return $this;
     }
 
-    public function setMarkDown(bool $markdown): self
-    {
-        $this->markDown = $markdown;
-
-        return $this;
-    }
-
     public function preparePayload(): array
     {
         $payload = [
@@ -136,7 +123,6 @@ class Card implements CardInterface
             'title' => $this->title,
             'themeColor' => $this->themeColor,
             'text' => $this->text,
-            'markDown' => $this->markDown,
         ];
 
         if (isset($this->sections)) {

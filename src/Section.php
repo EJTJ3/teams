@@ -31,11 +31,29 @@ class Section
      */
     private $facts;
 
+    /**
+     * @var bool
+     */
+    private $markDown;
+
     public function __construct(string $activityTitle)
     {
         $this->activityTitle = $activityTitle;
+        $this->markDown = true;
 
         $this->facts = [];
+    }
+
+    public function isMarkdown(): bool
+    {
+        return $this->markDown;
+    }
+
+    public function setMarkDown(bool $markdown): self
+    {
+        $this->markDown = $markdown;
+
+        return $this;
     }
 
     public function getActivityTitle(): string
@@ -110,7 +128,10 @@ class Section
 
     public function toArray(): array
     {
-        $section = ['activityTitle' => $this->activityTitle];
+        $section = [
+            'activityTitle' => $this->activityTitle,
+            'markdown' => $this->markDown,
+        ];
 
         if ($this->activitySubtitle !== null) {
             $section['activitySubtitle'] = $this->activitySubtitle;
@@ -127,7 +148,7 @@ class Section
         if (isset($this->facts)) {
             $section['facts'] = $this->facts;
         }
-
+        
         return $section;
     }
 }
