@@ -1,6 +1,6 @@
 # Microsoft teams connector for PHP
 
-Warning: This package is moved to an other repository: https://github.com/skrepr/teams-connector
+Warning: This package has moved to an other repository: https://github.com/skrepr/teams-connector
 
 A very simple PHP package for sending messages to [Microsoft Teams](https://teams.microsoft.com)
 with [incoming webhooks](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook),
